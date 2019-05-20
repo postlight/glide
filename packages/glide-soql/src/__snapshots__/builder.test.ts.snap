@@ -1,0 +1,270 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Builder #groupBy() 1`] = `
+Builder {
+  "parts": Object {
+    "groupBy": GroupBy {
+      "fields": Array [
+        "LastName",
+      ],
+      "having": undefined,
+    },
+    "limit": Limit {
+      "size": undefined,
+    },
+    "offset": Offset {
+      "size": undefined,
+    },
+    "orderBy": OrderBy {
+      "direction": "ASC",
+      "fields": Array [],
+    },
+    "select": Select {
+      "fields": Set {},
+      "object": "User",
+    },
+    "where": Where {
+      "condition": undefined,
+    },
+  },
+}
+`;
+
+exports[`Builder #groupBy() 2`] = `
+Builder {
+  "parts": Object {
+    "groupBy": GroupBy {
+      "fields": Array [
+        "LastName",
+        "FirstName",
+      ],
+      "having": undefined,
+    },
+    "limit": Limit {
+      "size": undefined,
+    },
+    "offset": Offset {
+      "size": undefined,
+    },
+    "orderBy": OrderBy {
+      "direction": "ASC",
+      "fields": Array [],
+    },
+    "select": Select {
+      "fields": Set {},
+      "object": "User",
+    },
+    "where": Where {
+      "condition": undefined,
+    },
+  },
+}
+`;
+
+exports[`Builder #limit() 1`] = `
+Builder {
+  "parts": Object {
+    "groupBy": GroupBy {
+      "fields": Array [],
+      "having": undefined,
+    },
+    "limit": Limit {
+      "size": 10,
+    },
+    "offset": Offset {
+      "size": undefined,
+    },
+    "orderBy": OrderBy {
+      "direction": "ASC",
+      "fields": Array [],
+    },
+    "select": Select {
+      "fields": Set {},
+      "object": "User",
+    },
+    "where": Where {
+      "condition": undefined,
+    },
+  },
+}
+`;
+
+exports[`Builder #offset() 1`] = `
+Builder {
+  "parts": Object {
+    "groupBy": GroupBy {
+      "fields": Array [],
+      "having": undefined,
+    },
+    "limit": Limit {
+      "size": undefined,
+    },
+    "offset": Offset {
+      "size": 10,
+    },
+    "orderBy": OrderBy {
+      "direction": "ASC",
+      "fields": Array [],
+    },
+    "select": Select {
+      "fields": Set {},
+      "object": "User",
+    },
+    "where": Where {
+      "condition": undefined,
+    },
+  },
+}
+`;
+
+exports[`Builder #orderBy() 1`] = `
+Builder {
+  "parts": Object {
+    "groupBy": GroupBy {
+      "fields": Array [],
+      "having": undefined,
+    },
+    "limit": Limit {
+      "size": undefined,
+    },
+    "offset": Offset {
+      "size": undefined,
+    },
+    "orderBy": OrderBy {
+      "direction": "ASC",
+      "fields": Array [
+        "FirstName",
+      ],
+    },
+    "select": Select {
+      "fields": Set {},
+      "object": "User",
+    },
+    "where": Where {
+      "condition": undefined,
+    },
+  },
+}
+`;
+
+exports[`Builder #orderBy() 2`] = `
+Builder {
+  "parts": Object {
+    "groupBy": GroupBy {
+      "fields": Array [],
+      "having": undefined,
+    },
+    "limit": Limit {
+      "size": undefined,
+    },
+    "offset": Offset {
+      "size": undefined,
+    },
+    "orderBy": OrderBy {
+      "direction": "ASC",
+      "fields": Array [
+        "FirstName",
+        "LastName",
+      ],
+    },
+    "select": Select {
+      "fields": Set {},
+      "object": "User",
+    },
+    "where": Where {
+      "condition": undefined,
+    },
+  },
+}
+`;
+
+exports[`Builder #select() 1`] = `
+Builder {
+  "parts": Object {
+    "groupBy": GroupBy {
+      "fields": Array [],
+      "having": undefined,
+    },
+    "limit": Limit {
+      "size": undefined,
+    },
+    "offset": Offset {
+      "size": undefined,
+    },
+    "orderBy": OrderBy {
+      "direction": "ASC",
+      "fields": Array [],
+    },
+    "select": Select {
+      "fields": Set {
+        "FirstName",
+        "LastName",
+      },
+      "object": "User",
+    },
+    "where": Where {
+      "condition": undefined,
+    },
+  },
+}
+`;
+
+exports[`Builder #toString() 1`] = `""`;
+
+exports[`Builder #toString() 2`] = `"SELECT Id FROM User WHERE Company = 'Postlight' AND (EmailAddress = 'hello@postlight.com' OR PhoneNumber = '+16466948530') GROUP BY LastName ORDER BY LastName ASC LIMIT 10 OFFSET 10"`;
+
+exports[`Builder #where() 1`] = `
+Builder {
+  "parts": Object {
+    "groupBy": GroupBy {
+      "fields": Array [],
+      "having": undefined,
+    },
+    "limit": Limit {
+      "size": undefined,
+    },
+    "offset": Offset {
+      "size": undefined,
+    },
+    "orderBy": OrderBy {
+      "direction": "ASC",
+      "fields": Array [],
+    },
+    "select": Select {
+      "fields": Set {},
+      "object": "User",
+    },
+    "where": Where {
+      "condition": Cmp {
+        "expression": null,
+        "field": "Id",
+        "operator": "=",
+      },
+    },
+  },
+}
+`;
+
+exports[`Select #concat() 1`] = `
+Select {
+  "fields": Set {
+    "User.Contact.FirstName",
+    "User.Contact.LastName",
+  },
+  "object": "User",
+}
+`;
+
+exports[`Select #select() 1`] = `
+Select {
+  "fields": Set {
+    "FirstName",
+    "LastName",
+  },
+  "object": "User",
+}
+`;
+
+exports[`Select #toString() 1`] = `"SELECT FirstName, LastName FROM User"`;
+
+exports[`Select #toString() 2`] = `"SELECT Id, (SELECT Id FROM Contact) FROM User"`;

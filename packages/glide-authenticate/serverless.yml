@@ -1,0 +1,30 @@
+service: glide-authenticate
+provider:
+  name: aws
+  runtime: nodejs8.10
+package:
+  include:
+    - dist/**
+functions:
+  callback:
+    handler: dist/lib.callback
+    events:
+      - http:
+          path: oauth/callback
+          method: get
+  connect:
+    handler: dist/lib.connect
+    events:
+      - websocket:
+          route: $connect
+  message:
+    handler: dist/lib.message
+    events:
+      - websocket:
+          route: $default
+  refresh:
+    handler: dist/lib.refresh
+    events:
+      - http:
+          path: oauth/refresh
+          method: post

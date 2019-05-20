@@ -1,0 +1,17 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# Artifacts
+*.tsbuildinfo
+.serverless/
+coverage/
+dist/
+
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# Miscellaneous
+.vscode/
+*.DS_Store
+*.log

@@ -1,0 +1,21 @@
+{
+  "name": "@glide/runtime",
+  "version": "0.0.1",
+  "license": "(Apache-2.0 OR MIT)",
+  "main": "dist/lib.js",
+  "types": "dist/lib.d.ts",
+  "dependencies": {
+    "@glide/soql": "0.0.1",
+    "@zakgolba/jsonptr": "^1.1.0",
+    "graphql": "^14.3.0",
+    "jsforce": "^1.9.1",
+    "lodash": "^4.17.11",
+    "ts-std": "^0.7.0",
+    "utility-types": "^3.7.0"
+  },
+  "devDependencies": {
+    "@types/graphql": "14.2.0",
+    "@types/jsforce": "1.9.6",
+    "@types/lodash": "4.14.129"
+  }
+}

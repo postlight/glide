@@ -1,0 +1,13 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - checkout
+      - run: npm install
+      - run: npx lerna bootstrap
+      - run: npm run build
+      - run: npm run lint
+      - run: npm test -- --coverage --verbose
+      - run: npx codecov

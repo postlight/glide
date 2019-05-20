@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Bool #toString() 1`] = `"EmailAddress = 'hello@postlight.com' AND (FirstName = 'Hello' OR LastName = 'Postlight')"`;
+
+exports[`Bool constructor() 1`] = `
+Bool {
+  "operator": "AND",
+  "value": Array [
+    Cmp {
+      "expression": "hello@postlight.com",
+      "field": "EmailAddress",
+      "operator": "=",
+    },
+    Cmp {
+      "expression": "Hello",
+      "field": "FirstName",
+      "operator": "=",
+    },
+    Cmp {
+      "expression": "Postlight",
+      "field": "LastName",
+      "operator": "=",
+    },
+  ],
+}
+`;
+
+exports[`Bool constructor() 2`] = `
+Bool {
+  "operator": "AND",
+  "value": Array [
+    Cmp {
+      "expression": "hello@postlight.com",
+      "field": "EmailAddress",
+      "operator": "=",
+    },
+    Bool {
+      "operator": "OR",
+      "value": Array [
+        Cmp {
+          "expression": "Hello",
+          "field": "FirstName",
+          "operator": "=",
+        },
+        Cmp {
+          "expression": "Postlight",
+          "field": "LastName",
+          "operator": "=",
+        },
+      ],
+    },
+  ],
+}
+`;
+
+exports[`Cmp #toString() 1`] = `"Id = null"`;
+
+exports[`Cmp #toString() 2`] = `"Active = TRUE"`;
+
+exports[`Cmp #toString() 3`] = `"UsedSpace > 1000000000000"`;
+
+exports[`Cmp #toString() 4`] = `"UsedSpace >= 1000000000000"`;
+
+exports[`Cmp #toString() 5`] = `"Company IN ('Postlight', 'Salesforce')"`;
+
+exports[`Cmp #toString() 6`] = `"Company LIKE '%Post%'"`;
+
+exports[`Cmp #toString() 7`] = `"Description != '\\\\'test\\\\''"`;
+
+exports[`Cmp #toString() 8`] = `"Company NOT IN ('Postlight', 'Salesforce')"`;
+
+exports[`Cmp #toString() 9`] = `"UsedSpace < 1000000000000"`;
+
+exports[`Cmp #toString() 10`] = `"UsedSpace <= 1000000000000"`;
+
+exports[`Fn #toString() 1`] = `"AVG(UsedSpace)"`;
+
+exports[`Fn #toString() 2`] = `"CALENDAR_MONTH(LastLogin)"`;
+
+exports[`Fn #toString() 3`] = `"CALENDAR_QUARTER(LastLogin)"`;
+
+exports[`Fn #toString() 4`] = `"CALENDAR_YEAR(LastLogin)"`;
+
+exports[`Fn #toString() 5`] = `"CONVERT_TIMEZONE(LastLogin)"`;
+
+exports[`Fn #toString() 6`] = `"COUNT()"`;
+
+exports[`Fn #toString() 7`] = `"COUNT(Id)"`;
+
+exports[`Fn #toString() 8`] = `"COUNT_DISTINCT()"`;
+
+exports[`Fn #toString() 9`] = `"COUNT_DISTINCT(Id)"`;
+
+exports[`Fn #toString() 10`] = `"DAY_IN_MONTH(LastLogin)"`;
+
+exports[`Fn #toString() 11`] = `"DAY_IN_WEEK(LastLogin)"`;
+
+exports[`Fn #toString() 12`] = `"DAY_IN_YEAR(LastLogin)"`;
+
+exports[`Fn #toString() 13`] = `"DAY_ONLY(LastLogin)"`;
+
+exports[`Fn #toString() 14`] = `"FISCAL_MONTH(LastLogin)"`;
+
+exports[`Fn #toString() 15`] = `"FISCAL_QUARTER(LastLogin)"`;
+
+exports[`Fn #toString() 16`] = `"FISCAL_YEAR(LastLogin)"`;
+
+exports[`Fn #toString() 17`] = `"HOUR_IN_DAY(LastLogin)"`;
+
+exports[`Fn #toString() 18`] = `"MAX(max)"`;
+
+exports[`Fn #toString() 19`] = `"MIN(min)"`;
+
+exports[`Fn #toString() 20`] = `"SUM(sum)"`;
+
+exports[`Fn #toString() 21`] = `"WEEK_IN_MONTH(LastLogin)"`;
+
+exports[`Fn #toString() 22`] = `"WEEK_IN_YEAR(LastLogin)"`;

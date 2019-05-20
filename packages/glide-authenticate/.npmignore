@@ -1,0 +1,5 @@
+# See https://docs.npmjs.com/misc/developers#keeping-files-out-of-your-package for more about
+# ignoring files.
+
+src/
+tsconfig.json

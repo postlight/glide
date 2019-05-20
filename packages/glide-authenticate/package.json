@@ -1,0 +1,20 @@
+{
+  "name": "@glide/authenticate",
+  "version": "0.0.1",
+  "license": "(Apache-2.0 OR MIT)",
+  "main": "dist/lib.js",
+  "types": "dist/lib.d.ts",
+  "dependencies": {
+    "aws-sdk": "^2.458.0",
+    "jsforce": "^1.9.1",
+    "nconf": "^0.10.0"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "8.10.25",
+    "@types/aws-sdk": "2.7.0",
+    "@types/jsforce": "1.9.6",
+    "@types/nconf": "0.10.0",
+    "@types/node": "12.0.2",
+    "serverless": "^1.42.3"
+  }
+}

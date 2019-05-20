@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`soql() 1`] = `
+Builder {
+  "parts": Object {
+    "groupBy": GroupBy {
+      "fields": Array [],
+      "having": undefined,
+    },
+    "limit": Limit {
+      "size": undefined,
+    },
+    "offset": Offset {
+      "size": undefined,
+    },
+    "orderBy": OrderBy {
+      "direction": "ASC",
+      "fields": Array [],
+    },
+    "select": Select {
+      "fields": Set {},
+      "object": "User",
+    },
+    "where": Where {
+      "condition": undefined,
+    },
+  },
+}
+`;
+
+exports[`soql() 2`] = `
+Builder {
+  "parts": Object {
+    "groupBy": GroupBy {
+      "fields": Array [],
+      "having": undefined,
+    },
+    "limit": Limit {
+      "size": undefined,
+    },
+    "offset": Offset {
+      "size": undefined,
+    },
+    "orderBy": OrderBy {
+      "direction": "ASC",
+      "fields": Array [],
+    },
+    "select": Select {
+      "fields": Set {},
+      "object": "User",
+    },
+    "where": Where {
+      "condition": undefined,
+    },
+  },
+}
+`;

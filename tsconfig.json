@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "composite": true,
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "outDir": "dist",
+    "rootDir": "src",
+    "strict": true,
+    "target": "esnext"
+  },
+  "exclude": ["src/**/*.test.ts"],
+  "include": ["src/**/*.ts"],
+  "references": [
+    { "path": "packages/glide-authenticate" },
+    { "path": "packages/glide-runtime" },
+    { "path": "packages/glide-soql" }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "name": "@postlight/glide",
+  "version": "0.0.1",
+  "license": "(Apache 2.0 OR MIT)",
+  "description": "GraphQL for Salesforce",
+  "main": "dist/lib.js",
+  "types": "dist/lib.d.ts",
+  "authors": [
+    "Zachary Golba <zachary.golba@postlight.com>"
+  ],
+  "bin": {
+    "glide": "dist/main.js"
+  },
+  "scripts": {
+    "build": "tsc --build && chmod +x dist/main.js",
+    "clean": "rm -rf *.log coverage dist tsconfig.tsbuildinfo packages/*/{dist,tsconfig.tsbuildinfo}",
+    "lint": "tslint --project tsconfig.json",
+    "test": "jest --config jest.config.json --preset ts-jest"
+  },
+  "dependencies": {
+    "@zakgolba/jsonptr": "^1.1.0",
+    "@glide/runtime": "0.0.1",
+    "body-parser": "^1.19.0",
+    "chalk": "^2.4.2",
+    "cross-fetch": "^3.0.2",
+    "commander": "^2.20.0",
+    "express": "^4.17.0",
+    "get-port": "^5.0.0",
+    "graphql": "^14.3.0",
+    "graphql-playground-middleware-express": "^1.7.12",
+    "jsforce": "1.9.1",
+    "lodash": "^4.17.11",
+    "morgan": "^1.9.1",
+    "open": "6.1.0",
+    "pluralize": "^7.0.0",
+    "serve-static": "^1.14.1",
+    "ws": "^7.0.0"
+  },
+  "devDependencies": {
+    "@types/body-parser": "1.17.0",
+    "@types/chalk": "2.2.0",
+    "@types/commander": "2.12.2",
+    "@types/express": "4.16.1",
+    "@types/graphql": "14.2.0",
+    "@types/jest": "24.0.13",
+    "@types/jsforce": "1.9.6",
+    "@types/lodash": "4.14.129",
+    "@types/morgan": "1.7.35",
+    "@types/node": "12.0.2",
+    "@types/open": "6.0.0",
+    "@types/pluralize": "0.0.29",
+    "@types/serve-static": "1.13.2",
+    "@types/ws": "6.0.1",
+    "codecov": "^3.5.0",
+    "jest": "^24.8.0",
+    "lerna": "^3.14.1",
+    "prettier": "^1.17.1",
+    "ts-jest": "^24.0.2",
+    "tslint": "^5.16.0",
+    "tslint-config-airbnb": "^5.11.1",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "typescript": "3.4.5"
+  },
+  "volta": {
+    "node": "12.2.0"
+  }
+}

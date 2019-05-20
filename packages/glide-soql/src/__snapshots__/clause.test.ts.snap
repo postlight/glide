@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GroupBy #toString() 1`] = `"GROUP BY LeadSource"`;
+
+exports[`GroupBy #toString() 2`] = `"GROUP BY LeadSource HAVING COUNT(Name) > 100 AND LeadSource = 'Phone'"`;
+
+exports[`Limit #toString() 1`] = `"LIMIT 10"`;
+
+exports[`Offset #toString() 1`] = `"OFFSET 10"`;
+
+exports[`OrderBy #toString() 1`] = `"ORDER BY FirstName ASC"`;
+
+exports[`OrderBy #toString() 2`] = `"ORDER BY FirstName ASC"`;
+
+exports[`OrderBy #toString() 3`] = `"ORDER BY FirstName DESC"`;
+
+exports[`Where #toString() 1`] = `"WHERE EmailAddress = 'hello@postlight.com'"`;

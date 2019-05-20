@@ -1,0 +1,11 @@
+{
+  "collectCoverageFrom": [
+    "<rootDir>/packages/glide-compiler/src/*.ts",
+    "<rootDir>/packages/glide-execute/src/*.ts",
+    "<rootDir>/packages/glide-oauth/src/*.ts",
+    "<rootDir>/packages/glide-soql/src/*.ts",
+    "<rootDir>/packages/glide-std/src/*.ts",
+    "<rootDir>/src/*.ts"
+  ],
+  "testMatch": ["<rootDir>/packages/*/src/*.test.ts", "<rootDir>/src/*.test.ts"]
+}
