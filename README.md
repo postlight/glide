@@ -3,9 +3,8 @@
 </p>
 
 <h2 align="center">GraphQL for Salesforce</h2>
-<h1 align="center"></h1>
 
-Execute idiomatic GraphQL against _any_ Salesforce instance with a single command.
+Glide is the quickest way to prototype and build GraphQL applications backed by Salesforce data. Glide automatically introspects your Salesforce data models, creating an intuitive and idiomatic GraphQL schema out of the box. Glide also handles Salesforce authentication for you, so you can hit the ground running and start prototyping right away.
 
 ## Usage
 
