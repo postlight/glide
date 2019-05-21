@@ -18,12 +18,12 @@
     "test": "jest --config jest.config.json --preset ts-jest"
   },
   "dependencies": {
+    "@glide/runtime": "^0.0.1",
     "@zakgolba/jsonptr": "^1.1.0",
-    "@glide/runtime": "0.0.1",
     "body-parser": "^1.19.0",
     "chalk": "^2.4.2",
-    "cross-fetch": "^3.0.2",
     "commander": "^2.20.0",
+    "cross-fetch": "^3.0.2",
     "express": "^4.17.0",
     "get-port": "^5.0.0",
     "graphql": "^14.3.0",

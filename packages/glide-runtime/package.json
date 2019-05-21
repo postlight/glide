@@ -9,7 +9,7 @@
     "lint": "tslint --project tsconfig.json"
   },
   "dependencies": {
-    "@glide/soql": "0.0.1",
+    "@glide/soql": "^0.0.1",
     "@zakgolba/jsonptr": "^1.1.0",
     "graphql": "^14.3.0",
     "jsforce": "^1.9.1",
