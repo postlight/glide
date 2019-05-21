@@ -15,13 +15,13 @@ Glide is the quickest way to prototype and build GraphQL applications backed by 
 
 ## Documentation
 
-- [**Getting Started**]()
-  - [Installation](./documentation/getting-started#Installation)
-  - [Project Setup](./documentation/getting-started#Project%20Setup)
-  - [Executing GraphQL](./documentation/getting-started#Executing%20GraphQL)
-- [**Advanced Topics**](./documentation/advanced-topics#Advanced%20Topics)
-  - [Authentication](./documentation/advanced-topics#Deployment)
-  - [Schema Customization](./documentation/advanced-topics#Schema%20Customization)
+- [**Getting Started**](./documentation/getting-started.md)
+  - [Installation](./documentation/getting-started.md#Installation)
+  - [Project Setup](./documentation/getting-started.md#Project%20Setup)
+  - [Executing GraphQL](./documentation/getting-started.md#Executing%20GraphQL)
+- [**Advanced Topics**](./documentation/advanced-topics.md)
+  - [Authentication](./documentation/advanced-topics.md#Deployment)
+  - [Schema Customization](./documentation/advanced-topics.md#Schema%20Customization)
 
 ## Roadmap
 
