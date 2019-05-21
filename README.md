@@ -1,39 +1,31 @@
 <p align="center">
-  <img width="264" height="139" src="./public/logo.png">
+  <img alt="Glide" src="./public/logo.png" height="139" width="264">
 </p>
 
-<h2 align="center">GraphQL for Salesforce</h2>
-<h1 align="center"></h1>
+# GraphQL for Salesforce
 
-Execute idiomatic GraphQL against _any_ Salesforce instance with a single command.
+![CircleCI](https://img.shields.io/circleci/build/github/postlight/glide/master.svg?style=flat-square)
+![Codecov](https://img.shields.io/codecov/c/github/postlight/glide/master.svg?style=flat-square)
+![npm](https://img.shields.io/npm/v/@postlight/glide.svg?style=flat-square)
+![License](https://img.shields.io/badge/license-MIT%2FApache%202.0-blue.svg?style=flat-square)
 
-## Usage
+Glide is the quickest way to prototype and build GraphQL applications backed by Salesforce data. Glide automatically introspects your Salesforce data models, creating an intuitive and idiomatic GraphQL schema out of the box. Glide also handles Salesforce authentication for you, so you can hit the ground running and start prototyping right away.
 
-### Installation
+<img alt="GraphQL Playground" src="./public/demo.gif" width="980" />
 
-```sh
-yarn global add @postlight/glide
-```
+## Documentation
 
-OR
+- [**Getting Started**]()
+  - [Installation](./documentation/getting-started#Installation)
+  - [Project Setup](./documentation/getting-started#Project%20Setup)
+  - [Executing GraphQL](./documentation/getting-started#Executing%20GraphQL)
+- [**Advanced Topics**](./documentation/advanced-topics#Advanced%20Topics)
+  - [Authentication](./documentation/advanced-topics#Deployment)
+  - [Schema Customization](./documentation/advanced-topics#Schema%20Customization)
 
-```sh
-npm install --global @postlight/glide
-```
+## Roadmap
 
-### Project Setup
-
-Glide uses a JSON config file to map GraphQL operations to requests to your Salesforce instance. If you are setting up your project for the first time, you must first run the `init` generate a `glide.json` file.
-
-```sh
-glide init <salesforce-instance-url>
-```
-
-### Serving Requests
-
-```sh
-glide serve [path/to/glide.json]
-```
+There are a number of features that did not make it to the initial release of Glide. Please bear with us while we write a roadmap that outlines the design and implementation plan of what did not make the cut. In the meantime, feel free to submit a feature request!
 
 ## License
 

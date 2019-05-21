@@ -2,8 +2,12 @@
   "name": "@glide/runtime",
   "version": "0.0.1",
   "license": "(Apache-2.0 OR MIT)",
+  "description": "GraphQL -> Salesforce",
   "main": "dist/lib.js",
   "types": "dist/lib.d.ts",
+  "scripts": {
+    "lint": "tslint --project tsconfig.json"
+  },
   "dependencies": {
     "@glide/soql": "0.0.1",
     "@zakgolba/jsonptr": "^1.1.0",

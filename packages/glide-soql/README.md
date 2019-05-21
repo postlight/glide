@@ -1,5 +1,7 @@
 # @glide/soql
 
+A flexible SOQL query builder DSL.
+
 ## License
 
 Licensed under either of

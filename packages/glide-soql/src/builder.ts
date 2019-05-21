@@ -53,7 +53,7 @@ export class Builder {
     return this;
   }
 
-  select(...fields: Array<Field | Select>): Builder {
+  select(...fields: (Field | Select)[]): Builder {
     this.parts.select.select(...fields);
     return this;
   }
@@ -127,7 +127,7 @@ export class Select implements Fragment {
     );
   }
 
-  select(...fields: Array<Field | Select>): Select {
+  select(...fields: (Field | Select)[]): Select {
     fields.forEach(field => this.fields.add(field));
     return this;
   }

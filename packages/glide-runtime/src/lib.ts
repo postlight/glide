@@ -8,11 +8,29 @@ import * as prelude from "./prelude";
 export { Definition, Operator };
 
 export interface Runtime {
+  /**
+   * Asynchronously executes the given GraphQL source string against your Salesforce instance.
+   * Returns a `Promise` that resolves with the execution result of GraphQL `source` string.
+   *
+   * @param connection - A jsforce connection instance to interact with Salesforce.
+   * @param source - The GraphQL source string to execute.
+   */
   (connection: Connection, source: string): Promise<graphql.ExecutionResult>;
+
+  /**
+   * Executes a synchronous introspection query against the schema.
+   */
   introspectionFromSchema(): graphql.IntrospectionQuery;
+
+  /**
+   * Returns a pretty-printed GraphQL schema source string.
+   */
   printSchema(): string;
 }
 
+/**
+ * Creates an instance of the glide runtime.
+ */
 export default function createRuntime(definition: Definition<"Schema">): Runtime {
   const schema = defineSchema(definition);
   const runtime = Runtime as Runtime;

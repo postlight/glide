@@ -4,13 +4,23 @@ import glide, { Options } from "../lib";
 import { login } from "../oauth";
 import { display, json, isDevEnv } from "../utilities";
 
-export default async function serve(path: string = "glide.json"): Promise<void> {
+export interface Flags {
+  readonly environment: string;
+  readonly port: number;
+}
+
+export default async function serve(path: string = "glide.json", flags: Flags): Promise<void> {
+  process.env.NODE_ENV = flags.environment;
+
   const options = await configure(path);
-  const listener = glide(options).listen(8080, () => {
+  const listener = glide(options).listen(flags.port, () => {
     const address = display.address(listener);
 
     console.log(`server listening on ${address}`);
-    open(address).then(browser => browser.unref());
+
+    if (isDevEnv()) {
+      open(address).then(browser => browser.unref());
+    }
   });
 
   process.once("SIGTERM", () => {

@@ -130,25 +130,28 @@ export function scalar<I, E = string>(name: string, definition: ScalarDefinition
 }
 
 export function type(name: string, scope: Scope, definition: TypeDefinition) {
+  const { description } = definition;
+  const fields = () => {
+    return mapValues(definition.fields, field => {
+      const { description, required, source } = field;
+      const resolve = (record: object) => get(record, source);
+      let type = scope[field.type] as graphql.GraphQLOutputType;
+
+      if (required) {
+        type = new GraphQLNonNull(type);
+      }
+
+      return {
+        description,
+        resolve,
+        type,
+      };
+    });
+  };
+
   return new GraphQLObjectType({
-    description: definition.description,
-    fields: () => {
-      return mapValues(definition.fields, field => {
-        const { description, required, source } = field;
-        const resolve = (record: object) => get(record, source);
-        let type = scope[field.type] as graphql.GraphQLOutputType;
-
-        if (required) {
-          type = new GraphQLNonNull(type);
-        }
-
-        return {
-          description,
-          resolve,
-          type,
-        };
-      });
-    },
+    description,
+    fields,
     name,
   });
 }

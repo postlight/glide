@@ -15,15 +15,34 @@ const playgroundSettings: any = {
   },
 };
 
+/**
+ * Controls how data is fetched against your Salesforce instance.
+ */
 export interface Options {
+  /**
+   * A global connection object to use for every GraphQL request.
+   *
+   * Providing this option is useful in development environments where you do
+   * not want to send an `Authorization` header with every request.
+   */
   connection?: Connection | null;
+
+  /**
+   * The Salesforce instance url from which the schema was defined.
+   *
+   * This comes from the first argument passed to the `glide init` command.
+   */
   instance: string;
+
+  /**
+   * A schema defintion that describes the shape of your Salesforce instance.
+   */
   schema: Definition;
 }
 
 /**
- * Returns a middleware function that executes to GraphQL queries and mutations
- * against the provided Salesforce instance and configuration.
+ * Returns an express application that can be used as a standalone GraphQL server
+ * or mounted onto an existing express router.
  */
 export default function glide(options: Options): Application {
   const application = express();
