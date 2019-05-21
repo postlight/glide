@@ -50,6 +50,6 @@ function readConfig(filename) {
 server.use("/graphql", glide(readConfig("glide.json")));
 ```
 
-### Schema Customization
+## Schema Customization
 
 _TODO_
