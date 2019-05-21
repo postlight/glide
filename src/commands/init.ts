@@ -1,3 +1,5 @@
+// tslint:disable: object-shorthand-properties-first
+
 import { Definition, Operator } from "@glide/runtime";
 import jsforce from "jsforce";
 
@@ -153,7 +155,7 @@ function defineType(table: string): [Definition<"Type">, Identifiers] {
     {
       description: `Represents ${article} ${table} from Salesforce.`,
       fields: {},
-      table: table,
+      table,
     },
     {
       article,

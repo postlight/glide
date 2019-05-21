@@ -5,9 +5,8 @@ jobs:
       - image: circleci/node:10
     steps:
       - checkout
-      - run: npm install
       - run: npx lerna bootstrap
       - run: npm run build
-      - run: npm run lint
+      - run: npx lerna run lint
       - run: npm test -- --coverage --verbose
       - run: npx codecov

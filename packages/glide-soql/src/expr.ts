@@ -3,15 +3,15 @@ import { IS_EMPTY, Fragment } from "./util";
 
 const SINGLE_QUOTE = /'/gm;
 
+export type Expr = Bool | Cmp;
 export type Field = string | Fn;
 export type Scalar = bigint | boolean | null | number | string;
 
 export class Bool implements Fragment {
-  private readonly value: Array<Bool | Cmp>;
+  private readonly value: Expr[];
 
-  private constructor(private readonly operator: ops.Bool, value: Array<Bool | Cmp>) {
-    type Value = Array<Bool | Cmp>;
-    this.value = value.reduce<Value>((acc, item) => {
+  private constructor(private readonly operator: ops.Bool, value: Expr[]) {
+    this.value = value.reduce<Expr[]>((acc, item) => {
       if (item instanceof Cmp || operator !== item.operator) {
         acc.push(item);
         return acc;
@@ -21,11 +21,11 @@ export class Bool implements Fragment {
     }, []);
   }
 
-  static and(...value: Array<Bool | Cmp>): Bool {
+  static and(...value: Expr[]): Bool {
     return new Bool(ops.Bool.And, value);
   }
 
-  static or(...value: Array<Bool | Cmp>): Bool {
+  static or(...value: Expr[]): Bool {
     return new Bool(ops.Bool.Or, value);
   }
 

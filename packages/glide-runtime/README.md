@@ -1,5 +1,7 @@
 # @glide/runtime
 
+GraphQL -> Salesforce
+
 ## License
 
 Licensed under either of

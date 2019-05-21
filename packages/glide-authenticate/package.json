@@ -4,6 +4,9 @@
   "license": "(Apache-2.0 OR MIT)",
   "main": "dist/lib.js",
   "types": "dist/lib.d.ts",
+  "scripts": {
+    "lint": "tslint --project tsconfig.json"
+  },
   "dependencies": {
     "aws-sdk": "^2.458.0",
     "jsforce": "^1.9.1",
