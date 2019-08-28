@@ -9,7 +9,9 @@
 ![npm](https://img.shields.io/npm/v/@postlight/glide.svg?style=flat-square)
 ![License](https://img.shields.io/badge/license-MIT%2FApache%202.0-blue.svg?style=flat-square)
 
-Glide is the quickest way to prototype and build GraphQL applications backed by Salesforce data. Glide automatically introspects your Salesforce data models, creating an intuitive and idiomatic GraphQL schema out of the box. Glide also handles Salesforce authentication for you, so you can hit the ground running and start prototyping right away.
+Glide by [Postlight](https://postlight.com) is the quickest way to prototype and build GraphQL applications backed by Salesforce data. Glide automatically introspects your Salesforce data models, creating an intuitive and idiomatic GraphQL schema out of the box. Glide also handles Salesforce authentication for you, so you can hit the ground running and start prototyping right away.
+
+Read more in our [introduction to Glide](https://postlight.com/trackchanges/introducing-glide-graphql-for-salesforce).
 
 <img alt="GraphQL Playground" src="./public/demo.gif" width="980" />
 
@@ -43,3 +45,7 @@ at your option.
 Unless you explicitly state otherwise, any contribution intentionally submitted
 for inclusion in the work by you, as defined in the Apache-2.0 license, shall be
 dual licensed as above, without any additional terms or conditions.
+
+---
+
+🔬 A Labs project from your friends at [Postlight](https://postlight.com). Happy coding!
