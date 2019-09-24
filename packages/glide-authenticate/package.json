@@ -8,16 +8,16 @@
     "lint": "tslint --project tsconfig.json"
   },
   "dependencies": {
-    "aws-sdk": "^2.458.0",
-    "jsforce": "^1.9.1",
+    "aws-sdk": "^2.534.0",
+    "jsforce": "^1.9.2",
     "nconf": "^0.10.0"
   },
   "devDependencies": {
-    "@types/aws-lambda": "8.10.25",
+    "@types/aws-lambda": "8.10.32",
     "@types/aws-sdk": "2.7.0",
-    "@types/jsforce": "1.9.6",
+    "@types/jsforce": "1.9.9",
     "@types/nconf": "0.10.0",
-    "@types/node": "12.0.2",
-    "serverless": "^1.42.3"
+    "@types/node": "12.7.5",
+    "serverless": "^1.52.2"
   }
 }

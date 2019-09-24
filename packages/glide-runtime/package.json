@@ -11,15 +11,15 @@
   "dependencies": {
     "@glide/soql": "^0.0.1",
     "@zakgolba/jsonptr": "^1.1.0",
-    "graphql": "^14.3.0",
-    "jsforce": "^1.9.1",
-    "lodash": "^4.17.11",
+    "graphql": "^14.5.7",
+    "jsforce": "^1.9.2",
+    "lodash": "^4.17.15",
     "ts-std": "^0.7.0",
     "utility-types": "^3.7.0"
   },
   "devDependencies": {
-    "@types/graphql": "14.2.0",
-    "@types/jsforce": "1.9.6",
-    "@types/lodash": "4.14.129"
+    "@types/graphql": "14.5.0",
+    "@types/jsforce": "1.9.9",
+    "@types/lodash": "4.14.139"
   }
 }
