@@ -7,23 +7,23 @@ package:
     - dist/**
 functions:
   callback:
-    handler: dist/lib.callback
+    handler: dist/events/oauth/callback.default
     events:
       - http:
           path: oauth/callback
           method: get
   connect:
-    handler: dist/lib.connect
+    handler: dist/events/connect.default
     events:
       - websocket:
           route: $connect
   message:
-    handler: dist/lib.message
+    handler: dist/events/message.default
     events:
       - websocket:
           route: $default
   refresh:
-    handler: dist/lib.refresh
+    handler: dist/events/oauth/refresh.default
     events:
       - http:
           path: oauth/refresh

@@ -14,6 +14,7 @@ export default function main(): void {
   commander
     .command("init <url> [path]")
     .description("generates a glide.json file in the current directory")
+    .option("-s, --sandbox", "should be set if the given url points to a salesforce sandbox")
     .action(subcommand(init));
 
   commander

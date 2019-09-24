@@ -35,6 +35,12 @@ export interface Options {
   instance: string;
 
   /**
+   * If `true`, `https://test.salesforce.com` will be used in place of
+   * `https://login.salesforce.com` as a login url.
+   */
+  sandbox?: boolean;
+
+  /**
    * A schema defintion that describes the shape of your Salesforce instance.
    */
   schema: Definition;

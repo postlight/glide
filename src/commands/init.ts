@@ -1,10 +1,11 @@
 // tslint:disable: object-shorthand-properties-first
 
 import { Definition, Operator } from "@glide/runtime";
+import { Command } from "commander";
 import jsforce from "jsforce";
 
 import { Options } from "../lib";
-import { login } from "../oauth";
+import { Environment, login } from "../oauth";
 import { json, string } from "../utilities";
 
 interface Identifiers {
@@ -18,9 +19,10 @@ interface Inflection {
   singular: string;
 }
 
-export default async function init(origin: string, path: string = "glide.json"): Promise<void> {
-  const { instance, schema } = createOptions(origin);
-  const connection = await login(instance);
+export default async function init(origin: string, path: string, flags: Command): Promise<void> {
+  const { instance, sandbox, schema } = createOptions(origin, flags);
+  const environment = sandbox ? Environment.Default : Environment.Sandbox;
+  const connection = await login(instance, environment);
   const sobjects = await connection.describeGlobal().then(({ sobjects }) => {
     return Promise.all(sobjects.map(({ name }) => connection.describe(name)));
   });
@@ -55,13 +57,15 @@ export default async function init(origin: string, path: string = "glide.json"):
 
   await json.write(path, {
     instance,
+    sandbox,
     schema,
   });
 }
 
-function createOptions(instance: string): Options {
+function createOptions(instance: string, flags: Command): Options {
   return {
     instance,
+    sandbox: Boolean(flags.sandbox),
     schema: {
       mutations: {},
       queries: {},

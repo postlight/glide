@@ -12,6 +12,11 @@ type Message =
   | Readonly<{ data: Session; type: MessageType.Authenticated }>
   | Readonly<{ data: string; type: MessageType.Initialize }>;
 
+interface RefreshParams {
+  readonly environment?: Environment;
+  readonly token: string;
+}
+
 interface Refresh {
   readonly data?: Session;
   readonly errors?: [Pick<Error, "message">];
@@ -32,11 +37,19 @@ const enum MessageType {
   Initialize = "INITIALIZE",
 }
 
-export async function login(instance: string): Promise<Connection> {
+export const enum Environment {
+  Default = "default",
+  Sandbox = "sandbox",
+}
+
+export async function login(instance: string, environment: Environment): Promise<Connection> {
   const credentials = await loadCredentials();
 
   if (credentials[instance]) {
-    return refreshToken(instance, credentials[instance]);
+    return refreshToken(instance, {
+      environment,
+      token: credentials[instance],
+    });
   }
 
   return new Promise((resolve, reject) => {
@@ -102,10 +115,8 @@ async function loadCredentials(): Promise<Credentials> {
   return credentials;
 }
 
-async function refreshToken(instance: string, token: string): Promise<Connection> {
-  const [{ data, errors }, response] = await json.post<Refresh>(Endpoint.Refresh, {
-    token,
-  });
+async function refreshToken(instance: string, params: RefreshParams): Promise<Connection> {
+  const [{ data, errors }, response] = await json.post<Refresh>(Endpoint.Refresh, params);
 
   return response.ok
     ? createConnection(instance, data!)
