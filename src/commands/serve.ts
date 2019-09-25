@@ -1,4 +1,7 @@
-import { Connection } from "jsforce";
+import { EOL } from "os";
+
+import boxen from "boxen";
+import chalk from "chalk";
 import open from "open";
 
 import glide, { Options } from "../lib";
@@ -16,8 +19,19 @@ export default async function serve(path: string = "glide.json", flags: Flags): 
   const options = await configure(path);
   const listener = glide(options).listen(flags.port, () => {
     const address = display.address(listener);
+    const message = [
+      chalk`Config File: {underline ${path}}`,
+      chalk`GraphQL Server: {underline ${address}}`,
+      chalk`Salesforce Instance: {underline ${options.instance}}`,
+    ];
 
-    console.log(`serving objects from ${options.instance} on ${address}`);
+    console.log(
+      boxen(message.join(EOL), {
+        float: "center",
+        margin: 3,
+        padding: 1,
+      }),
+    );
 
     if (isDevEnv()) {
       open(address).then(browser => browser.unref());
@@ -36,17 +50,13 @@ export default async function serve(path: string = "glide.json", flags: Flags): 
 
 async function configure(path: string): Promise<Options> {
   const options = await json.read<Options>(path);
-  let connection: Connection | null = null;
 
   if (isDevEnv()) {
-    connection = await login(
+    options.connection = await login(
       options.instance,
       options.sandbox ? Environment.Default : Environment.Sandbox,
     );
   }
 
-  return {
-    connection,
-    ...options,
-  };
+  return options;
 }
