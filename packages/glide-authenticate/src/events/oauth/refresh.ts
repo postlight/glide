@@ -1,9 +1,8 @@
 import { handler, oauth2 } from "../../utilities";
 
-export const refresh = handler(async request => {
+export default handler(async request => {
   const { environment, token } = JSON.parse(request.body || "{}");
-  const strategy = oauth2.configure(environment);
-  const result = await strategy.refreshToken(token);
+  const result = await oauth2.configure(environment).refreshToken(token);
 
   return {
     oauth2: oauth2.options(environment),

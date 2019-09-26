@@ -21,7 +21,7 @@ interface Inflection {
 
 export default async function init(origin: string, path: string, flags: Command): Promise<void> {
   const { instance, sandbox, schema } = createOptions(origin, flags);
-  const environment = sandbox ? Environment.Default : Environment.Sandbox;
+  const environment = sandbox ? Environment.Sandbox : Environment.Default;
   const connection = await login(instance, environment);
   const sobjects = await connection.describeGlobal().then(({ sobjects }) => {
     return Promise.all(sobjects.map(({ name }) => connection.describe(name)));

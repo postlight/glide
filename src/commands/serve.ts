@@ -54,7 +54,7 @@ async function configure(path: string): Promise<Options> {
   if (isDevEnv()) {
     options.connection = await login(
       options.instance,
-      options.sandbox ? Environment.Default : Environment.Sandbox,
+      options.sandbox ? Environment.Sandbox : Environment.Default,
     );
   }
 

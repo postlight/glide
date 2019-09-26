@@ -3,7 +3,7 @@ import { Connection } from "jsforce";
 import { MessageType } from "../../types";
 import { handler, params, oauth2, send } from "../../utilities";
 
-export const callback = handler(async request => {
+export default handler(async request => {
   const environment = params.get(request, "environment");
   const connection = new Connection({
     oauth2: oauth2.configure(environment),

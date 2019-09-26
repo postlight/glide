@@ -1,4 +1,4 @@
-service: glide-authenticate
+service: glide-oauth
 provider:
   name: aws
   runtime: nodejs8.10

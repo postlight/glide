@@ -58,7 +58,7 @@ export async function login(instance: string, environment: Environment): Promise
     socket.on("open", () => {
       socket.send(
         JSON.stringify({
-          data: null,
+          data: { environment },
           type: MessageType.Initialize,
         }),
       );
