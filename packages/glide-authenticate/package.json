@@ -5,17 +5,20 @@
   "main": "dist/lib.js",
   "types": "dist/lib.d.ts",
   "scripts": {
+    "deploy": "serverless deploy",
     "lint": "tslint --project tsconfig.json"
   },
   "dependencies": {
     "aws-sdk": "^2.534.0",
     "jsforce": "^1.9.2",
+    "lodash": "^4.17.15",
     "nconf": "^0.10.0"
   },
   "devDependencies": {
     "@types/aws-lambda": "8.10.32",
     "@types/aws-sdk": "2.7.0",
     "@types/jsforce": "1.9.9",
+    "@types/lodash": "4.14.139",
     "@types/nconf": "0.10.0",
     "@types/node": "12.7.5",
     "serverless": "^1.52.2"

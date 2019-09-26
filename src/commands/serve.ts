@@ -1,7 +1,11 @@
+import { EOL } from "os";
+
+import boxen from "boxen";
+import chalk from "chalk";
 import open from "open";
 
 import glide, { Options } from "../lib";
-import { login } from "../oauth";
+import { Environment, login } from "../oauth";
 import { display, json, isDevEnv } from "../utilities";
 
 export interface Flags {
@@ -15,8 +19,19 @@ export default async function serve(path: string = "glide.json", flags: Flags): 
   const options = await configure(path);
   const listener = glide(options).listen(flags.port, () => {
     const address = display.address(listener);
+    const message = [
+      chalk`Config File: {underline ${path}}`,
+      chalk`GraphQL Server: {underline ${address}}`,
+      chalk`Salesforce Instance: {underline ${options.instance}}`,
+    ];
 
-    console.log(`server listening on ${address}`);
+    console.log(
+      boxen(message.join(EOL), {
+        float: "center",
+        margin: 3,
+        padding: 1,
+      }),
+    );
 
     if (isDevEnv()) {
       open(address).then(browser => browser.unref());
@@ -36,8 +51,12 @@ export default async function serve(path: string = "glide.json", flags: Flags): 
 async function configure(path: string): Promise<Options> {
   const options = await json.read<Options>(path);
 
-  return {
-    connection: isDevEnv() ? await login(options.instance) : null,
-    ...options,
-  };
+  if (isDevEnv()) {
+    options.connection = await login(
+      options.instance,
+      options.sandbox ? Environment.Sandbox : Environment.Default,
+    );
+  }
+
+  return options;
 }

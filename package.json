@@ -21,6 +21,7 @@
     "@glide/runtime": "^0.0.1",
     "@zakgolba/jsonptr": "^1.1.0",
     "body-parser": "^1.19.0",
+    "boxen": "^4.1.0",
     "chalk": "^2.4.2",
     "commander": "^3.0.1",
     "cross-fetch": "^3.0.4",

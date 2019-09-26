@@ -1,5 +1,9 @@
 import lambda, { Context } from "aws-lambda";
 import { ApiGatewayManagementApi } from "aws-sdk";
+import { OAuth2, OAuth2Options } from "jsforce";
+import nconf from "nconf";
+
+import { Environment } from "./types";
 
 let apiGateway: ApiGatewayManagementApi | null = null;
 
@@ -11,6 +15,8 @@ export type Response = lambda.APIGatewayProxyResult;
 export type Responder = (request: Request, context: Context) => Promise<object | null | void>;
 
 export function handler(responder: Responder): lambda.APIGatewayProxyHandler {
+  nconf.env("__");
+
   return (request, context, callback) => {
     responder(request, context).then(
       data => {
@@ -52,9 +58,29 @@ export async function send(client: Client, data: object): Promise<void> {
   await apiGateway.postToConnection(message).promise();
 }
 
+export namespace oauth2 {
+  const url = {
+    [Environment.Default]: "https://login.salesforce.com",
+    [Environment.Sandbox]: "https://test.salesforce.com",
+  };
+
+  export function configure(environment?: string): OAuth2 {
+    return new OAuth2(options(environment));
+  }
+
+  export function options(environment?: string): OAuth2Options {
+    return {
+      ...nconf.get("oauth"),
+      loginUrl: url[Environment.from(environment)],
+    };
+  }
+}
+
 export namespace params {
-  export function get(request: Request, param: string): string | undefined {
-    return (request.queryStringParameters || {})[param];
+  export function get(request: Request, param: string): string | undefined;
+  export function get(request: Request, param: string, value: string): string;
+  export function get(request: Request, param: string, value?: string): string | undefined {
+    return (request.queryStringParameters || {})[param] || value;
   }
 
   export function require(request: Request, param: string): string {
